@@ -1,11 +1,10 @@
 import fetchMovies from './fetchMovies.js';
+import importComponent from './component-importer.js';
 
+document.addEventListener('DOMContentLoaded', async () => {
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    const templateImport =  document.getElementById('movieImport').import;
-    const template = templateImport.querySelector('template');
-    const templateClone = document.importNode(template.content, true);
+    console.log('content loaded');
+    const templateClone = await importComponent('./components/movie-item.component.html');
 
     document.getElementById('btnSearch').addEventListener('click', async () => {
 
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     });
-
 
 
 })

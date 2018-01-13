@@ -15,8 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             //const listItem = document.createElement('li');
 
-            const listItem = templateClone.querySelector('li').cloneNode(true);
-            listItem.innerText = item.show.name;
+            const listItem = templateClone.querySelector('movie-item-element').cloneNode(true);
+            // listItem.innerText = item.show.name;
+            listItem.movie = item.show;
             document.getElementById('lstResults').appendChild(listItem);
         });
 

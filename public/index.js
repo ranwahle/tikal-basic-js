@@ -4,25 +4,31 @@ import importComponent from './component-importer.js';
 document.addEventListener('DOMContentLoaded', async () => {
 
     console.log('content loaded');
-    const templateClone = await importComponent('./components/movie-item.component.html');
+    try {
+        const templateClone = await importComponent('./components/movie-item.component.html');
 
-    document.getElementById('btnSearch').addEventListener('click', async () => {
+        document.getElementById('btnSearch').addEventListener('click', async () => {
 
-        const result = await fetchMovies(document.getElementById('txtSearchForMovie').value)
+            const result = await fetchMovies(document.getElementById('txtSearchForMovie').value)
 
-        console.log('fetch result', result)
-        result.forEach(item => {
+            console.log('fetch result', result)
+            result.forEach(item => {
 
-            //const listItem = document.createElement('li');
+                //const listItem = document.createElement('li');
 
-            const listItem = templateClone.querySelector('movie-item-element').cloneNode(true);
-            // listItem.innerText = item.show.name;
-            listItem.movie = item.show;
-            document.getElementById('lstResults').appendChild(listItem);
+                const movieElement = templateClone.querySelector('movie-item-element')
+                    .cloneNode(true);
+                // listItem.innerText = item.show.name;
+                movieElement.movie = item.show;
+                document.getElementById('lstResults').appendChild(movieElement);
+            });
+
+
         });
-
-
-    });
+    }
+    catch(err) {
+        console.error('error loading component', err);
+    }
 
 
 })

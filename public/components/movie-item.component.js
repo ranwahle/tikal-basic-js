@@ -13,7 +13,7 @@ customElements.define('movie-item-element', class extends HTMLElement {
            this.innerHTML =  `<div><a href="${movie.url}"> ${movie.name}</a></div>`
        }
        else {
-           this.innerHTML = `<div>${movie.name}</div>`;
+           this.innerHTML = `<li>${movie.name}</li>`;
        }
    }
 

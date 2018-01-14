@@ -9,17 +9,13 @@ customElements.define('movie-item-element', class extends HTMLElement {
    }
    set movie(movie) {
        this._movie = movie;
-       this.innerHTML = `<li>${movie.name}</li>`;
+       if (movie.url) {
+           this.innerHTML =  `<div><a href="${movie.url}"> ${movie.name}</a></div>`
+       }
+       else {
+           this.innerHTML = `<div>${movie.name}</div>`;
+       }
    }
-
-    attributeChangedCallback (name, oldValue, newValue) {
-        console.log(name, oldValue, newValue);
-    }
-
-    static get observedAttributes () {
-        return ['movie']
-    }
-
 
 
 });

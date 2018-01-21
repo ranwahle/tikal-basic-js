@@ -11,12 +11,13 @@ export class TeamService {
     }
 
 
-    getTeams() {
-        return fetch(`http://${this._gameService.baseUrl}:8080/teams/current`)
-            .then(response => response.json());
+    async getTeams()  {
+        const response = await fetch(`http://${this._gameService.baseUrl}:8080/teams/current`);
+         //const response = await fetchPromise;  //  .then(response => response.json());
+        return await response.json();
     }
-    
-    
+
+
 
 
 }

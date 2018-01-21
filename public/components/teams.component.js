@@ -1,6 +1,6 @@
 import {TeamService} from "../services/teams.service.js";
 
-customElements.define('teams-component',     class TeamsComponent extends HTMLElement{
+customElements.define('teams-component',  class TeamsComponent extends HTMLElement {
     constructor() {
         super();
         this.teamsService = new TeamService();
@@ -13,10 +13,12 @@ customElements.define('teams-component',     class TeamsComponent extends HTMLEl
     }
 
     addEvents() {
-       // this.querySelector('#serverName').addEventListener('change', () => console.log('url changed'));
-        this.querySelector('button').addEventListener('click', () => {
+        this.querySelector('button')
+            .addEventListener('click', async () => {
             this.teamsService.baseUrl = this.querySelector('#serverName').value;
-            this.teamsService.getTeams();
+            const teams = await this.teamsService.getTeams();
+            console.log('got teams', teams);
+
         })
     }
 

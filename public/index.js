@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     console.log('content loaded');
     try {
-        const templateClone = await importComponent('./components/teams.component.html');
-        const teamsPage = templateClone.querySelector('teams-component').cloneNode(true);
+        const teamsPage = await importComponent('./components/teams.component.html', 'teams-component');
 
         document.body.appendChild(teamsPage);
 

@@ -1,4 +1,5 @@
 import {TeamService} from "../services/teams.service.js";
+import importComponent from "../component-importer.js";
 
 customElements.define('teams-component',  class TeamsComponent extends HTMLElement {
     constructor() {
@@ -17,7 +18,9 @@ customElements.define('teams-component',  class TeamsComponent extends HTMLEleme
             .addEventListener('click', async () => {
             this.teamsService.baseUrl = this.querySelector('#serverName').value;
             const teams = await this.teamsService.getTeams();
-            console.log('got teams', teams);
+            const teamList = await importComponent(`./teams-list.component.html`,`teams-list`, this);
+            teamList.teams = teams;
+            this.appendChild(teamList);
 
         })
     }

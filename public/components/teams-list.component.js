@@ -20,7 +20,7 @@ customElements.define('teams-list', class extends HTMLElement{
         let result = '';
         if (this.teams) {
             this.teams.forEach(team => {
-                result += `<li>${team.name}</li>`;
+                result += `<li class="team">${team.name}</li>`;
             })
         }
         return result;

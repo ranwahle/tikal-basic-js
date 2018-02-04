@@ -12,9 +12,14 @@ export class TeamService {
 
 
     async getTeams()  {
-        const response = await fetch(`http://${this._gameService.baseUrl}:8080/teams/current`);
-         //const response = await fetchPromise;  //  .then(response => response.json());
-        return await response.json();
+        try {
+            const response = await fetch(`http://${this._gameService.baseUrl}:8080/teams/current`);
+            //const response = await fetchPromise;  //  .then(response => response.json());
+            return await response.json();
+        }
+        catch(err) {
+            console.error('error getting teams', err);
+        }
     }
 
 

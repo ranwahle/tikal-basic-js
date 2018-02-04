@@ -1,0 +1,10 @@
+div.team::before {
+    display: block;
+    background-image: url('/assets/images/ant.924977c4.png');
+    background-size: 15px;
+
+}
+
+li.team {
+    /*list-style-image: url('/assets/images/ant.924977c4.png');*/
+}

@@ -13,12 +13,23 @@ customElements.define('teams-component',  class TeamsComponent extends HTMLEleme
         this.addEvents();
     }
 
+   async getTEamsComponent() {
+        const existingTeamList = this.querySelector('teams-list');
+        if (existingTeamList) {
+            return existingTeamList;
+        }
+       const teamList = await importComponent(`./teams-list.component.html`,`teams-list`, this);
+       return teamList;
+    }
+
     addEvents() {
         this.querySelector('button')
             .addEventListener('click', async () => {
-            this.teamsService.baseUrl = this.querySelector('#serverName').value;
+                const serverName =  this.querySelector('#serverName').value;
+                localStorage.setItem('server-name', serverName)
+            this.teamsService.baseUrl = serverName;
             const teams = await this.teamsService.getTeams();
-            const teamList = await importComponent(`./teams-list.component.html`,`teams-list`, this);
+           const teamList = await this.getTEamsComponent();
             teamList.teams = teams;
             this.appendChild(teamList);
 
@@ -29,7 +40,7 @@ customElements.define('teams-component',  class TeamsComponent extends HTMLEleme
     render() {
         this.innerHTML = ` <label>
         Server name:
-    <input type="text" id="serverName">
+    <input type="text" id="serverName" value="${localStorage.getItem('server-name') || '' }">
     </label>
     <button>Get Teams</button>`
     }

@@ -17,10 +17,11 @@ customElements.define('teams-list', class extends HTMLElement{
     }
 
     teamsList() {
+        console.log('teams list', this.teams);
         let result = '';
         if (this.teams) {
             this.teams.forEach(team => {
-                result += `<li class="team">${team.name}</li>`;
+                result += `<li class="team">${team.name} Score  ${team.score}, Spieces name: ${team.antSpecies.name}</li>`;
             })
         }
         return result;

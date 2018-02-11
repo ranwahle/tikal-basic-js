@@ -18,7 +18,7 @@ export default function importComponent(componentUrl, componentName, baseParent)
         element.setAttribute('href', componentUrl);
         element.setAttribute('rel', 'import');
         document.head.appendChild(element);
-
+// <link rel="import" href="{{ componentUrl }} "/>
         element.addEventListener('load', () => {
             const templateImport = element.import;
             const template = templateImport.querySelector('template');

@@ -13,8 +13,8 @@ customElements.define('teams-component',  class TeamsComponent extends HTMLEleme
         this.addEvents();
     }
 
-   async getTEamsComponent() {
-        const existingTeamList = this.querySelector('teams-list');
+   async getTeamsComponent() {
+        const existingTeamList =  await this.querySelector('teams-list');
         if (existingTeamList) {
             return existingTeamList;
         }
@@ -29,7 +29,7 @@ customElements.define('teams-component',  class TeamsComponent extends HTMLEleme
                 localStorage.setItem('server-name', serverName)
             this.teamsService.baseUrl = serverName;
             const teams = await this.teamsService.getTeams();
-           const teamList = await this.getTEamsComponent();
+           const teamList = await this.getTeamsComponent();
             teamList.teams = teams;
             this.appendChild(teamList);
 

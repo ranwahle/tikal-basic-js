@@ -39,18 +39,19 @@ customElements.define('teams-component',  class TeamsComponent extends HTMLEleme
             this.appendChild(teamList);
 
         });
-        this.querySelector('#btnRegister').addEventListener('click', () => {
-           this.gameService.register(this.gameId);
-        });
+        // this.querySelector('#btnRegister').addEventListener('click', () => {
+        //    this.gameService.register(this.gameId);
+        // });
     }
 
 
     render() {
         this.innerHTML = ` <label>
         Server name:
-    <input type="text" id="serverName" value="${localStorage.getItem('server-name') || '' }">
+    <input type="text" id="serverName" class="server-name" value="${localStorage.getItem('server-name') || '' }">
     </label>
     <button id="btnGetTeams">Get Teams</button>
-  <button id="btnRegister">Register</button>`
+  <!--<button id="btnRegister">Register</button>-->
+  `
     }
 });

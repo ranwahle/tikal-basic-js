@@ -1,0 +1,18 @@
+
+.server-name {
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: red;
+}
+
+button#btnGetTeams {
+    color: white;
+    background-color: red;
+    border-color: #fd5e60;
+    cursor: pointer;
+}
+
+button#btnGetTeams:hover {
+    background-color: #fd5e60;
+}

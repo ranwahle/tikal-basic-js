@@ -1,4 +1,10 @@
-
+div.list {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+}
 div.team {
     display: flex;
 }
@@ -13,7 +19,7 @@ div.team::before {
     background-position-y: 3px;
     background-repeat: no-repeat;
 }
-}
+
 
 li.team {
     /*list-style-image: url('/assets/images/ant.924977c4.png');*/

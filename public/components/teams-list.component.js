@@ -29,7 +29,7 @@ customElements.define('teams-list', class extends HTMLElement{
 
     render() {
         const template = `<h2>Teams</h2>
-        <ul>${this.teamsList()}</ul>
+        <div class="list">${this.teamsList()}</div>
       `
         this.innerHTML = template;
     }

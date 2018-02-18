@@ -1,8 +1,18 @@
-div.team::before {
-    display: block;
-    background-image: url('/assets/images/ant.924977c4.png');
-    background-size: 15px;
 
+div.team {
+    display: flex;
+}
+
+div.team::before {
+    display: flex;
+    background-image: url('/assets/images/ant.924977c4.png');
+    background-size: 15px 15px;
+    content: ' ';
+    width: 20px;
+    background-position-x: 2px;
+    background-position-y: 3px;
+    background-repeat: no-repeat;
+}
 }
 
 li.team {

@@ -21,7 +21,7 @@ customElements.define('teams-list', class extends HTMLElement{
         let result = '';
         if (this.teams) {
             this.teams.forEach(team => {
-                result += `<li class="team">${team.name} Score  ${team.score}, Spieces name: ${team.antSpecies.name}</li>`;
+                result += `<div class="team">${team.name} Score  ${team.score}, Spieces name: ${team.antSpecies.name}</div>`;
             })
         }
         return result;
@@ -29,8 +29,8 @@ customElements.define('teams-list', class extends HTMLElement{
 
     render() {
         const template = `<h2>Teams</h2>
-        <ul>${this.teamsList()}</ul>`
-
+        <ul>${this.teamsList()}</ul>
+      `
         this.innerHTML = template;
     }
 
